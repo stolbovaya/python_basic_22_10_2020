@@ -2,8 +2,12 @@
 3. Узнайте у пользователя число n. Найдите сумму чисел n + nn + nnn. Например, пользователь ввёл число 3.
 Считаем 3 + 33 + 333 = 369.
 """
-
-user_int = int(input('введите целое число\n >>>'))
+while True:
+    user_int = input('введите целое число\n >>>')
+    if user_int.isdigit():
+        user_int = int(user_int)
+        break
+    print('Ошибка введено не число')
 result = 0
 idx = 0
 idx_max = 3

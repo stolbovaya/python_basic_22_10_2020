@@ -2,8 +2,13 @@
 4. Пользователь вводит целое положительное число. Найдите самую большую цифру в числе.
 Для решения используйте цикл while и арифметические операции.
 """
+while True:
+    user_int = input('введите целое число\n >>>')
+    if user_int.isdigit():
+        user_int = int(user_int)
+        break
+    print('Ошибка введено не число')
 
-user_int = int(input('введите целое положительное число\n >>>'))
 count = 0
 user_count = user_int
 while user_count:
@@ -11,7 +16,7 @@ while user_count:
     count += 1
 
 idx = count - 1
-max_int = -1
+max_int = 0
 
 while idx >= 0 and max_int != 9:
     cur_int = user_int // 10**idx
