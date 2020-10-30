@@ -39,10 +39,7 @@ while next_enter:
 print(product_list)
 product_analytics = {}
 for key in product_template:
-    result = []
-    for itm in product_list:
-        result.append(itm[1][key])
-    product_analytics[key] = result
+    product_analytics[key] = [itm[1][key] for itm in product_list]
 print(product_analytics)
 
 
