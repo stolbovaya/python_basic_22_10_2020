@@ -4,23 +4,12 @@
 При нечетном количестве элементов последний сохранить на своем месте.
 Для заполнения списка элементов необходимо использовать функцию input().
 """
-while True:
-    count_elements = input('введите количество элемент в списке\n >>>')
-    if count_elements.isdigit():
-        count_elements = int(count_elements)
-        break
-    print(f"Ошибка введите число")
 
-some_list = []
+user_list = input('введите список через запятую\n >>>')
+user_list = user_list.split(',')
 idx = 0
-while idx < count_elements:
-    some_list.append(input('введите элемент списка\n >>>'))
-    idx += 1
-print(f"Введенный список {some_list}")
-idx = 0
-while idx <= count_elements // 2:
-    element = some_list[idx]
-    some_list[idx] = some_list[idx+1]
-    some_list[idx+1] = element
+stop = len(user_list)-1
+while idx < stop:
+    user_list[idx], user_list[idx+1] = user_list[idx+1], user_list[idx]
     idx += 2
-print(f"Обработанный список {some_list}")
+print(f"Обработанный список {user_list}")
