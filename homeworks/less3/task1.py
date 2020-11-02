@@ -3,17 +3,18 @@
 Числа запрашивать у пользователя, предусмотреть обработку ситуации деления на ноль.
 """
 
-def division_func(p_1=0, p_2=1):
+
+def division_func(p_1=0, p_2=1) -> float:
     """Возвращает частное от деления.
 
     Именованные параметры:
-    p_1 -- делимое (по умолчанию 0.0)
-    p_2 -- делитель (по умолчанию 1.0)
-
+    :param p_1 -- делимое (по умолчанию 0.0)
+    :param p_2 -- делитель (по умолчанию 1.0)
+    :return:  float or None
     """
     if p_2 == 0:
         print('Ошибка деление на ноль. ')
-        return None     # пишем в явном виде для читаемости кода
+        return float('nan')
     else:
         return p_1 / p_2
 
@@ -35,5 +36,4 @@ for key, value in input_template.items():
             continue
     input_dict[key] = value
 
-print(f'Частное = {division_func(input_dict["делимое"],input_dict["делитель"])}')
-
+print(f'Частное = {division_func(input_dict["делимое"], input_dict["делитель"])}')
