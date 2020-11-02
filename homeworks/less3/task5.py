@@ -22,10 +22,10 @@ while next_do:
             next_do = False
             break
         try:
-            number_list.append(int(number))
+            if number > '':
+                number_list.append(int(number))
         except ValueError:
-            print('Ошибка ввода.')
-            number_list =[]
-            break
+            print(f'Неверное значение: {number}')
+
     summa_list += sum(number_list)
     print(f'Сумма = {summa_list}')
