@@ -12,5 +12,7 @@ def multiply_func(prev_el, el):
     return prev_el * el
 
 
-res = [itm for itm in range(100, 1001) if itm % 2 == 0]
-print(reduce(multiply_func, res))
+list_elements = [itm for itm in range(100, 1001) if itm % 2 == 0]
+result = reduce(multiply_func, list_elements)
+print(list_elements)
+print(result)

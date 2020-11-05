@@ -6,7 +6,7 @@
 """
 
 
-def fibo_gen(n):
+def fact(n):
     nxt = 1
     result = 1
     while n:
@@ -16,8 +16,5 @@ def fibo_gen(n):
         result *= nxt
 
 
-for idx, itm in enumerate(fibo_gen(5), 1):
-    print(idx, itm)
-
-for  itm in fibo_gen(5):
-    print( itm)
+for idx, el in enumerate(fact(5), 1):
+    print(idx, el)
