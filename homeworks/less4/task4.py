@@ -4,6 +4,6 @@
 Элементы вывести в порядке их следования в исходном списке.
 Для выполнения задания обязательно использовать генератор.
 """
-data =[1,2,3,4,5,6,3,3,4,1,1,2]
-result = [itm for itm in set(data) if data.count(itm) ==1]
+user_list = [60, 7, 12, 3, 4, 5, 6, 70, 3, 3, 4, 1, 1, 2, 50]
+result = [itm for itm in user_list if user_list.count(itm) == 1]
 print(result)
