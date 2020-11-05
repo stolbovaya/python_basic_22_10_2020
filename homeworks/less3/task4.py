@@ -13,16 +13,13 @@ def degree(x=0, y=0):
 
 def degree_cycle(x=0, y=0):
     idx = 1
-    if y >= 0:
-        result = x
-    else:
-        result = 1/x
+    result = x
     while idx < abs(y):
-        if y >= 0:
-            result *= x
-        else:
-            result /= x
+        result *= x
         idx += 1
+    print(result)
+    if y < 0:
+        result = 1 / result
     return result
 
 
@@ -42,5 +39,7 @@ for key, value in input_template.items():
             print(f"{e}\nНе верное значение данных")
             continue
     input_dict[key] = value
-print(f'{input_dict["число x"]} в степени {input_dict["число y"]} = {degree(input_dict["число x"], input_dict["число y"])}')
-print(f'{input_dict["число x"]} в степени {input_dict["число y"]} = {degree_cycle(input_dict["число x"], input_dict["число y"])}')
+print(
+    f'{input_dict["число x"]} в степени {input_dict["число y"]} = {degree(input_dict["число x"], input_dict["число y"])}')
+print(
+    f'{input_dict["число x"]} в степени {input_dict["число y"]} = {degree_cycle(input_dict["число x"], input_dict["число y"])}')
