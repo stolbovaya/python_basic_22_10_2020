@@ -12,7 +12,7 @@ def sum_max2(number1=0, number2=0, number3=0):
     :param number3: 3 чесло
     :return:
     """
-    return sum(max([number1, number2], [number1, number3], [number2, number3], key=sum))
+    return max(number1 + number2, number1 + number3, number2 + number3)
 
 
 input_list = []
