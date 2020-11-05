@@ -1,9 +1,7 @@
 """
 2. Представлен список чисел. Необходимо вывести элементы исходного списка, значения которых больше предыдущего элемента.
 """
-import random
-
-user_list = [el for el in range(random.randint(0, 1000))]
+user_list = [1, 2, 2, 3, 3, 6, 8, 9, 4, 56, 1, 8, 9]
 print(user_list)
 result_list = []
 itm_before = user_list[0]
