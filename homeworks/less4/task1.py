@@ -5,12 +5,10 @@
 """
 from sys import argv
 
-script_name, work_hours, rate_hour, bonus = argv
+_, work_hours, rate_hour, bonus, *__ = argv
+
 try:
-    work_hours = int(work_hours)
-    rate_hour= float(rate_hour)
-    bonus = float(bonus)
-    print(f"Заработная плата = {work_hours*rate_hour+bonus}")
+    print(f"Заработная плата = {int(work_hours)*float(rate_hour)+float(bonus)}")
 except ValueError as e:
     print(f"{e}\nНе верное значение данных")
 
