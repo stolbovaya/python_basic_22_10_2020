@@ -5,10 +5,8 @@
 """
 from sys import argv
 
-_, work_hours, rate_hour, bonus, *__ = argv
-
 try:
-    print(f"Заработная плата = {int(work_hours)*float(rate_hour)+float(bonus)}")
+    _, work_hours, rate_hour, bonus, *__ = argv
+    print(f"Заработная плата = {int(work_hours) * float(rate_hour) + float(bonus)}")
 except ValueError as e:
     print(f"{e}\nНе верное значение данных")
-
