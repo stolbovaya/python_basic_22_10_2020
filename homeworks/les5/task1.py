@@ -6,8 +6,8 @@
 file = open('user.txt', 'w', encoding='UTF-8')
 while True:
     str_input = input('Введите строку \n>>>')
-    if str_input > '':
-        file.write(str_input + '\n')
+    if str_input:
+        file.write(f'{str_input}\n')
     else:
         break
 file.close()
