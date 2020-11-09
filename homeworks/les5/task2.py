@@ -9,8 +9,7 @@ idx = 0
 user_dict = {}
 for line in file:
     idx += 1
-    user_dict[idx] = len(line.rstrip().split(' '))
-
+    user_dict[idx] = len(list(filter(None, line.rstrip().split(' '))))  # Пробел не считаем словом
 file.close()
 print(f'Количество строк = {idx}')
-print(f'Количество слов по строкам: {user_dict}')
+print(f'Количество слов по строкам: \n {user_dict}')
