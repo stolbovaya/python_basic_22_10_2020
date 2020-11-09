@@ -28,7 +28,7 @@ file_in = open('УчПлан.txt', 'r', encoding='UTF-8')
 for line in file_in:
     el = (list(filter(None, line.rstrip().split(' '))))
     try:
-        user_dict[el[0].split(':')[0]] = sum(list(map(get_hour, el[1:])))
+        user_dict[el[0][:-1]] = sum(list(map(get_hour, el[1:])))
     except ValueError as e:
         print(f"{e}\nНе верное значение данных")
 file_in.close()
