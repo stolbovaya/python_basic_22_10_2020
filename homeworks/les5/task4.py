@@ -17,8 +17,8 @@ try:
         el = list(filter(None, line.rstrip().split(' ')))
         el = num2words(int(el[2]), lang='ru') + ' - ' + el[2] + '\n'
         file_out.write(el)
-except:
-    print(f'Ошибка обработки')
+except ValueError as e:
+    print(f"{e}\nНе верное значение данных")
 finally:
     file_in.close()
-    file_out.close()
+file_out.close()

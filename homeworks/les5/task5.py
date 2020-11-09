@@ -4,7 +4,7 @@
 """
 import random
 
-list_elements = [random.randint(1, 100) for _ in range(random.randint(100, 250))]
+list_elements = [random.randint(1, 100) for _ in range(random.randint(100, 500))]
 
 file_out = open('out.txt', 'w', encoding='UTF-8')
 file_out.write(" ".join(map(str, list_elements)))
