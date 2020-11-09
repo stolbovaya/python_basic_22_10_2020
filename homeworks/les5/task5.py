@@ -4,17 +4,17 @@
 """
 import random
 
-list_elements = [str(random.randint(1, 100)) for itm in range(1, 1001)]
+list_elements = [random.randint(1, 100) for _ in range(random.randint(100, 250))]
 
 file_out = open('out.txt', 'w', encoding='UTF-8')
-file_out.write(" ".join(list_elements))
+file_out.write(" ".join(map(str, list_elements)))
 file_out.close()
-
-user_list =[]
-file_in = open('out.txt', 'r', encoding='UTF-8')
-user_str = file_in.readlines()
-user_list=user_str.split(' ')
-file_in.close()
-
 print(list_elements)
-print(user_list)
+print(sum(list_elements))
+
+user_list = []
+file_in = open('out.txt', 'r', encoding='UTF-8')
+for line in file_in:
+    user_list = map(int, line.split(' '))
+file_in.close()
+print(sum(user_list))
