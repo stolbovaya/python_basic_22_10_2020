@@ -33,8 +33,11 @@ for line in file_in:
         firms_count += 1
 
 file_in.close()
-
-firms_list = [firms_dict, dict(average_profit=firms_sum_profit / firms_count)]
+if firms_count > 0:
+    average_profit = firms_sum_profit / firms_count
+else:
+    average_profit = float('inf')
+firms_list = [firms_dict, dict(average_profit=average_profit)]
 print(firms_list)
 
 with open("FirmsProfit.json", "w") as write_file:
