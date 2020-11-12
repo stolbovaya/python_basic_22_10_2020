@@ -8,6 +8,8 @@
 
 
 class Stationery:
+    title = ''
+
     def __init__(self, title):
         self.title = title
 
@@ -16,28 +18,32 @@ class Stationery:
 
 
 class Pen(Stationery):
-    def __init__(self):
-        super().__init__(self, 'ручка')
+    def __init__(self, title='ручка'):
+        super().__init__(title)
 
     def draw(self):
-        print('Рисует ручка.')
+        print(f'Рисует {self.title}.')
 
 
 class Pencil(Stationery):
-    def __init__(self):
-        super().__init__(self, 'карандаш')
+    def __init__(self, title='карандаш'):
+        super().__init__(title)
 
     def draw(self):
-        print('Рисует карандаш.')
+        print(f'Рисует {self.title}.')
 
 
 class Handle(Stationery):
-    def __init__(self):
-        super().__init__(self, 'маркер')
+    def __init__(self, title='маркер'):
+        super().__init__(title)
 
     def draw(self):
-        print('Рисует маркер.')
-
-pen =Pencil
+        print(f'Рисует {self.title}.')
 
 
+pen = Pen()
+pen.draw()
+pencil = Pencil()
+pencil.draw()
+handle = Handle('красный маркер')
+handle.draw()

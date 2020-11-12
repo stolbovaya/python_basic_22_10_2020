@@ -25,7 +25,10 @@ class Car:
         print('STOP')
 
     def turn(self, direction):
-        print(direction)
+        if direction in ('left', 'right'):
+            print(direction)
+        else:
+            print('direction must be left or right')
 
     def show_speed(self):
         print(self.speed)
@@ -72,22 +75,24 @@ car.turn('left')
 car.show_speed()
 car.stop()
 print('')
-workCar = WorkCar(70, 'Red', 'Машина')
+workCar = WorkCar(70, 'White')
 workCar.show_name()
 workCar.show_speed()
 
 print('')
-townCar = TownCar(60, 'Red', 'Би-БИ')
+townCar = TownCar(60, 'Green', 'Машина')
 townCar.show_name()
 townCar.show_speed()
 print('')
-car = PoliceCar(160, 'Red')
-car.show_name()
-car.go()
-car.turn('left')
-car.show_speed()
-car.stop()
+
+policeCar = PoliceCar(160, 'Red')
+policeCar.show_name()
+policeCar.go()
+policeCar.turn('dddd')
+policeCar.show_speed()
+policeCar.stop()
 print('')
+
 car = SportCar(160, 'Red')
 car.show_name()
 car.go()

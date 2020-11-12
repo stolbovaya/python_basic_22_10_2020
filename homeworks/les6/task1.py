@@ -11,19 +11,22 @@ from time import sleep
 
 
 class TrafficLight:
-    __time_light = {}
+    __time_light = (("красный", 7), ("желтый", 2), ("зеленый", 5))
 
-    def __init__(self, time_red=7, time_yellow=2, time_green=10):
-        self.__time_light = {"красный": time_red, "желтый": time_yellow, "зеленый": time_green}
+    def __init__(self, time_red=7, time_yellow=2, time_green=5):
+        self.__time_light = (("красный", time_red), ("желтый", time_yellow), ("зеленый", time_green))
 
     def running(self):
         idx = 0
-        while idx < 10:
-            for key, time in self.__time_light.items():
-                print(key)
-                sleep(time)
+        while idx < 3:
+            for el in self.__time_light:
+                print(el[0])
+                sleep(el[1])
             idx += 1
 
 
-trafficLight = TrafficLight()
-trafficLight.running()
+trafficLight2 = TrafficLight(1, 1, 1)
+trafficLight2.running()
+
+trafficLight1 = TrafficLight()
+trafficLight1.running()

@@ -9,28 +9,25 @@ income (доход). Последний атрибут должен быть з�
 
 
 class Worker:
-    __income = {"wage": 0, "bonus": 0}
 
-    def __init__(self, name='', surname='', position='', income=0):
+    def __init__(self, name, surname, position, wage, bonus):
         self.name = name
         self.surname = surname
-        self._position = position
-        self._income = income
+        self.position = position
+        self._income = {"wage": wage, "bonus": bonus}
 
 
 class Position(Worker):
-    def __init__(self, name='', surname='', position='', income=0, wage=0, bonus=0):
-        self._Worker__income["wage"] = wage
-        self._Worker__income["bonus"] = bonus
-        super().__init__(name, surname, position, income)
+    def __init__(self, name, surname, position, wage, bonus):
+        super().__init__(name, surname, position, wage, bonus)
 
     def get_full_name(self):
-        return self._name + ' ' + self._surname
+        return f'{self.name}  {self.surname}'
 
     def get_total_income(self):
-        return sum(self.__income[1])
+        return sum(self._income.values())
 
 
-staf = Position('Екатерина', 'Столбовая', 'ИТ-Архитектор', 5000, 1000)
-print({staf.get_full_name})
-print(staf.get_total_income)
+staf = Position('Екатерина', 'Столбовая', 'ИТ-Архитектор', 5000, 1100)
+print(staf.get_full_name())
+print(staf.get_total_income())
