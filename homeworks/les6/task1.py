@@ -11,19 +11,19 @@ from time import sleep
 
 
 class TrafficLight:
-    _time_light = {}
+    __time_light = {}
 
     def __init__(self, time_red=7, time_yellow=2, time_green=10):
-        self._time_light = {"красный": time_red, "желтый": time_yellow, "зеленый": time_green}
+        self.__time_light = {"красный": time_red, "желтый": time_yellow, "зеленый": time_green}
 
     def running(self):
         idx = 0
         while idx < 10:
-            for key, time in self._time_light.items():
+            for key, time in self.__time_light.items():
                 print(key)
                 sleep(time)
             idx += 1
 
 
-trafficLight = TrafficLight(1, 1, 1)
+trafficLight = TrafficLight()
 trafficLight.running()

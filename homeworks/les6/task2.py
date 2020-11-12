@@ -8,16 +8,14 @@
 
 
 class Road:
-    _length = 0
-    _width = 0
-    _mass_1kvm = 25
+    __mass_1kvm = 25
 
-    def __init__(self, length=0, width=0):
+    def __init__(self, length, width):
         self._length = length
         self._width = width
 
-    def mass_asphalt(self, depth=0):
-        return self._width * self._length * self._mass_1kvm * depth
+    def mass_asphalt(self, thickness=1):
+        return self._width * self._length * self.__mass_1kvm * thickness
 
 
 road = Road(20, 5000)
