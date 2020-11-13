@@ -56,7 +56,8 @@ cell2 = Cell(3)
 cell3 = cell1 + cell2
 print(cell3.count_cell)
 print(cell3.make_order(5))
-
+print(cell3.make_order(15))
+print(cell3.make_order(3))
 cell4 = cell1 - cell2
 print(cell4.count_cell)
 
@@ -65,6 +66,7 @@ print(cell5.count_cell)
 
 cell6 = cell1 * cell2
 print(cell6.count_cell)
+print(cell6.make_order(10))
 
 cell7 = cell1 / cell2
 print(cell7.count_cell)
