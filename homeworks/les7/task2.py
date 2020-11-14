@@ -21,6 +21,7 @@ class Coat(Clothes):
         self.height = height
         super().__init__(name)
 
+    @property
     def expense(self):
         return self.height / 6.5 + 0.5
 
@@ -36,6 +37,7 @@ class Suit(Clothes):
 
 
 coat = Coat('пальто', 179)
-print(coat.expense())
+print(coat.expense)
 suit = Suit('костюм', 10)
 print(suit.expense)
+print(f'Общий расход ткани = {coat.expense + suit.expense}')
