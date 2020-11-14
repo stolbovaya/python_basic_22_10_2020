@@ -32,7 +32,7 @@ class Cell:
             return Cell(self.count_cell - other.count_cell)
         else:
             print('Уменьшаемое должно быть больше вычитаемого')
-            return Cell(self.count_cell)
+            return None
 
     def __mul__(self, other):
         return Cell(self.count_cell * other.count_cell)
@@ -58,11 +58,12 @@ print(cell3.count_cell)
 print(cell3.make_order(5))
 print(cell3.make_order(15))
 print(cell3.make_order(3))
+
 cell4 = cell1 - cell2
 print(cell4.count_cell)
 
 cell5 = cell2 - cell1
-print(cell5.count_cell)
+
 
 cell6 = cell1 * cell2
 print(cell6.count_cell)

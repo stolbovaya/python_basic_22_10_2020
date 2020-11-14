@@ -10,16 +10,19 @@
 классы для основных классов проекта, проверить на практике работу декоратора @property.
 """
 
+from abc import ABC, abstractmethod
 
-class Clothes:
-    def __init__(self, name):
-        self.name = name
+
+class Clothes(ABC):
+    @abstractmethod
+    def expense(self):
+        pass
 
 
 class Coat(Clothes):
-    def __init__(self, name, height):
+    def __init__(self, height, name='пальто'):
+        self.name = name
         self.height = height
-        super().__init__(name)
 
     @property
     def expense(self):
@@ -27,17 +30,17 @@ class Coat(Clothes):
 
 
 class Suit(Clothes):
-    def __init__(self, name, size):
+    def __init__(self, size, name='костюм'):
+        self.name = name
         self.size = size
-        super().__init__(name)
 
     @property
     def expense(self):
         return 2 * self.size + 0.3
 
 
-coat = Coat('пальто', 179)
+coat = Coat( 179)
 print(coat.expense)
-suit = Suit('костюм', 10)
+suit = Suit( 10)
 print(suit.expense)
 print(f'Общий расход ткани = {coat.expense + suit.expense}')
