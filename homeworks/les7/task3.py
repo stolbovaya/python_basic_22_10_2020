@@ -22,52 +22,51 @@
 
 class Cell:
     def __init__(self, count_cell):
-        self.count_cell = count_cell
+        self.__count_cell = count_cell
 
     def __add__(self, other):
-        return Cell(self.count_cell + other.count_cell)
+        return Cell(self.__count_cell + other.__count_cell)
 
     def __sub__(self, other):
-        if self.count_cell > other.count_cell:
-            return Cell(self.count_cell - other.count_cell)
-        else:
-            print('Уменьшаемое должно быть больше вычитаемого')
-            return None
+        if self.__count_cell > other.__count_cell:
+            return Cell(self.__count_cell - other.__count_cell)
+        raise ValueError('Уменьшаемое должно быть больше вычитаемого')
 
     def __mul__(self, other):
-        return Cell(self.count_cell * other.count_cell)
+        return Cell(self.__count_cell * other.__count_cell)
 
     def __truediv__(self, other):
-        return Cell(self.count_cell // other.count_cell)
+        return Cell(self.__count_cell // other.__count_cell)
 
-    def make_order(self, cell_row):
+    def make_order(self, cell_row: int):
+        if not isinstance(cell_row, int):
+            raise TypeError('cells_in_lines int type only')
         idx = 1
         result = ''
-        while idx <= self.count_cell:
+        while idx <= self.__count_cell:
             result += '*'
             if (idx % cell_row) == 0:
-                result += '/n'
+                result += '\n'
             idx += 1
         return result
 
-
-cell1 = Cell(10)
-cell2 = Cell(3)
-cell3 = cell1 + cell2
-print(cell3.count_cell)
-print(cell3.make_order(5))
-print(cell3.make_order(15))
-print(cell3.make_order(3))
-
-cell4 = cell1 - cell2
-print(cell4.count_cell)
-
-cell5 = cell2 - cell1
+    def __str__(self):
+        return f'Клетка содержит {self.__count_cell} ячеек'
 
 
-cell6 = cell1 * cell2
-print(cell6.count_cell)
-print(cell6.make_order(10))
+if __name__ == '__main__':
+    cell1 = Cell(10)
+    cell2 = Cell(3)
+    cell3 = cell2 + cell1
+    print(cell3)
 
-cell7 = cell1 / cell2
-print(cell7.count_cell)
+    print(cell3.make_order(3))
+
+    cell4 = cell1 - cell2
+    print(cell4)
+
+    cell6 = cell1 * cell2
+    print(cell6)
+
+    cell7 = cell1 / cell2
+    print(cell7)
