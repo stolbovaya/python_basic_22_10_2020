@@ -14,33 +14,46 @@ from abc import ABC, abstractmethod
 
 
 class Clothes(ABC):
+
+    @property
     @abstractmethod
-    def expense(self):
+    def expense(self) -> float:
+        pass
+
+    def params(self) -> float:
         pass
 
 
 class Coat(Clothes):
     def __init__(self, height, name='пальто'):
         self.name = name
-        self.height = height
+        self.__height = height
 
     @property
     def expense(self):
-        return self.height / 6.5 + 0.5
+        return self.__height / 6.5 + 0.5
+
+    @property
+    def params(self):
+        return self.__height
 
 
 class Suit(Clothes):
     def __init__(self, size, name='костюм'):
         self.name = name
-        self.size = size
+        self.__size = size
 
     @property
     def expense(self):
-        return 2 * self.size + 0.3
+        return 2 * self.__size + 0.3
+
+    @property
+    def params(self):
+        return self.__size
 
 
-coat = Coat( 179)
-print(coat.expense)
-suit = Suit( 10)
-print(suit.expense)
-print(f'Общий расход ткани = {coat.expense + suit.expense}')
+if __name__ == '__main__':
+    coat = Coat(179)
+    print(f'Общий расход ткани на пошив пальто для роста {coat.params} = {coat.expense}')
+    suit = Suit(10)
+    print(f'Общий расход ткани на пошим костюма размера {suit.params} = {suit.expense}')
