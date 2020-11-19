@@ -18,15 +18,15 @@ class Matrix:
         self.__array = deepcopy(array)
         self.__shape = (len(max(self.__array, key=len)), len(self.__array))
         if len(min(self.__array, key=len)) != self.shape[0]:
-            self.__reshape()
+            self.__reshape(self.__shape[0])
 
     @property
     def shape(self):
         return self.__shape
 
-    def __reshape(self):
+    def __reshape(self, toLen):
         for itm in self.__array:
-            tmp = self.shape[0] - len(itm)
+            tmp = toLen - len(itm)
             if tmp:
                 itm.extend([0 for _ in range(tmp)])
 
@@ -39,11 +39,21 @@ class Matrix:
     def __add__(self, other):
         if not isinstance(other, Matrix):
             raise TypeError(f'This is Not Matrix this is {type(other).__name__}')
-        if self.shape != other.shape:
-            raise ValueError(f'Not equal shape matrix {self.shape} and {other.shape}')
+        # Складываем матрицы разных размерностей
+        m1 = deepcopy(self)
+        m2 = deepcopy(other)
+        if m1.shape[1] > m2.shape[1]:
+            m2.__array.extend([[0 for _ in range(m2.__shape[0])] for _ in range(m1.__shape[1] - m2.__shape[1])])
+        else:
+            m1.__array.extend([[0 for _ in range(m1.__shape[0])] for _ in range(m2.__shape[1] - m1.__shape[1])])
+
+        if m1.shape[0] > m2.shape[0]:
+            m2.__reshape(m1.__shape[0])
+        else:
+            m1.__reshape(m2.__shape[0])
 
         return Matrix(list(map(lambda y: list(map(sum, y)),
-                               map(lambda x: list(zip(*x)), zip(self, other))
+                               map(lambda x: list(zip(*x)), zip(m1, m2))
                                )
                            )
                       )
@@ -61,9 +71,12 @@ class Matrix:
 
 
 if __name__ == '__main__':
-    matrix1 = Matrix([[1, 2, 1], [2, 2], [3, 3]])
+    matrix1 = Matrix([[1, 2, 1, 4], [2, 2], [3, 3]])
     print(matrix1)
-    matrix2 = Matrix([[10, 1, 1], [2], [3, 3, 4]])
+    matrix2 = Matrix([[10, 1, 1], [2], [3, 3, 4], [5], [6]])
     print(matrix2)
     matrix = matrix1 + matrix2
+    print('-----------------------------------------------------')
     print(matrix)
+    print(matrix1)
+    print(matrix2)
