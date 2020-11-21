@@ -11,7 +11,7 @@ class DivZero(Exception):
         self.txt = txt
 
 
-def div(a, b):
+def div(a, b) -> int:
     if b == 0:
         raise DivZero('')
     return a / b
