@@ -23,16 +23,17 @@ def to_int(in_str: str):
         raise IntError('')
 
 
-list_int = []
+if __name__ == '__main__':
+    list_int = []
 
-print("Для выхода нажмите Enter без ввода значения")
-while True:
-    element_str = input("Ведите целое число \n>>>")
-    if element_str == '':
-        break
-    try:
-        list_int.append(to_int(element_str))
-    except IntError:
-        print(f'Ошибка! Введенный элемент не является числом.')
+    print("Для выхода нажмите Enter без ввода значения")
+    while True:
+        element_str = input("Ведите целое число \n>>>")
+        if element_str == '':
+            break
+        try:
+            list_int.append(to_int(element_str))
+        except IntError:
+            print(f'Ошибка! Введенный элемент не является числом.')
 
-print(list_int)
+    print(list_int)

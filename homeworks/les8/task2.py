@@ -17,9 +17,10 @@ def div(a, b) -> int:
     return a / b
 
 
-try:
-    result = div(10, 0)
-except DivZero:
-    result = float('inf')
+if __name__ == '__main__':
+    try:
+        result = div(10, 0)
+    except DivZero:
+        result = float('inf')
 
-print(result)
+    print(result)
